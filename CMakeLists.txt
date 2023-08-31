@@ -105,10 +105,10 @@ add_compile_options(
     -fdata-sections
 
     # C++ stuff
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
+    # $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
+    # $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
+    # $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
+    # $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
 
     # ASM stuff
     $<$<COMPILE_LANGUAGE:ASM>:-x>
@@ -118,6 +118,8 @@ add_compile_options(
 add_link_options(
     -T ${PROJECT_SOURCE_DIR}/linker_script_rz_a1l.ld
     LINKER:--gc-sections
+    LINKER:-s
+    LINKER:-flto
 
     -nostartfiles # Don't emit startfiles
     -estart # Set the entrypoint to 'start' (see RZA1/compiler/asm/start.S)
