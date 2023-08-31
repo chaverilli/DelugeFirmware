@@ -52,7 +52,7 @@ def argparser() -> argparse.ArgumentParser:
 def main() -> int:
     (args, unknown_args) = argparser().parse_known_args()
     if args.target in ["7seg", "oled"]:
-        target = "deluge" + args.target.upper()
+        target = "deluge"
     else:
         target = args.target
 

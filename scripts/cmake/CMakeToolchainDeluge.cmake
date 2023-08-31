@@ -45,8 +45,8 @@ set(CMAKE_EXE_LINKER_FLAGS "--specs=nano.specs --specs=rdimon.specs" CACHE STRIN
 
 # Architecture
 set(ARCH_FLAGS
-  -mcpu=cortex-a9
-  #-march=armv7-a
+  #-mcpu=cortex-a9
+  -march=armv7-a
   -marm
   -mthumb-interwork
   -mlittle-endian
